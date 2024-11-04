@@ -4,11 +4,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World'
+    return '<p>Hello World!</p>'
 
 @app.route('/about')
-def presentation():
-	return 'Contact: me@mail.com \n Phone: 123-456-789'
+def about_us():
+	return '    <h1>Contact Us</h1>
+		    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    		    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+		'
 
 if __name__ == '__main__':
 
