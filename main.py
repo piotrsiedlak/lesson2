@@ -8,10 +8,7 @@ def hello_world():
 
 @app.route('/about')
 def about_us():
-	return '    <h1>Contact Us</h1>
-		    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-    		    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
-		'
+	return 'Contact: me@mail.com Phone: 123-456-789'
 
 if __name__ == '__main__':
 
