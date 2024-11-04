@@ -8,7 +8,7 @@ def hello_world():
 
 @app.route('/about')
 def presentation():
-	return 'Contact: me@mail.com \n Phone: 123-456-789'
+	return 'dupa debugging'
 
 if __name__ == '__main__':
 
