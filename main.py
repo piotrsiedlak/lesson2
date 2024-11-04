@@ -1,4 +1,5 @@
 from flask import Flask
+from markupsafe import escape
 
 app = Flask(__name__)
 
@@ -9,6 +10,10 @@ def hello_world():
 @app.route('/about')
 def about_us():
 	return 'Contact: me@mail.com Phone: 123-456-789'
+
+@app.route("/<name>")
+def hello(name):
+    return f"Hello, {escape(name)}!"
 
 if __name__ == '__main__':
 
