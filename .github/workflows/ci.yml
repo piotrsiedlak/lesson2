@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Pull repo
+      uses: actions/checout@v4
+      -name: print hell
+      run: echo "Hello"
