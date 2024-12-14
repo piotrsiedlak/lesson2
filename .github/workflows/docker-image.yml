@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag flask_app:$(date +%s)
     - name: Check image
-      run: docker images
+      run: docker images | grep flask
