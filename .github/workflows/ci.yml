@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -name: Pull repo
-      uses: actions/checout@v4
-      -name: print hell
-      run: echo "Hello"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print hello
+        run: echo "Hello"
