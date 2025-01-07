@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def hello_name(name):
 
 @app.route('/about')
 def about_us():
-	return 'Contact: me@mail.com Phone: 123-456-789'
+	return 'Contact: correct_email@mail.com Phone: 987-654-321'
 
 if __name__ == '__main__':
 
