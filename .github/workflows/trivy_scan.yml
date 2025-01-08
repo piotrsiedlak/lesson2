@@ -3,8 +3,9 @@ name: Dockerfile Scan with Trivy
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
+      - master
 
 jobs:
   trivy-scan:
