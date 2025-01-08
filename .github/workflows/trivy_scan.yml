@@ -10,7 +10,7 @@ on:
 
 jobs:
   trivy-scan:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-stable
 
     steps:
       - name: Checkout repository
