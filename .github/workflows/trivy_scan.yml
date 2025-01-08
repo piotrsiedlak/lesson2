@@ -11,14 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Download and install Trivy
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y wget
-          wget -qO- https://github.com/aquasecurity/trivy/releases/latest/download/trivy_$(uname -s)_$(uname -m).tar.gz | tar zxvf - -C /usr/local/bin/
+          wget -q https://github.com/aquasecurity/trivy/releases/latest/download/trivy_$(uname -s)_$(uname -m).tar.gz -O trivy.tar.gz
+          tar zxvf trivy.tar.gz -C /usr/local/bin/
+          rm trivy.tar.gz
+
+      - name: Verify Trivy installation
+        run: trivy --version
 
       - name: Scan Dockerfile with Trivy
         run: |
