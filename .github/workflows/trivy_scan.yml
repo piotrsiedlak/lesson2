@@ -13,9 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Use a tool to scan the Dockerfile
+      - name: Dockerfile scan with Hadolint
+        uses: hadolint/hadolint-action@v2
+        with:
+          dockerfile: dockerfile
+
+      # Optional: Add another scanner
       - name: Dockerfile scan with Trivy
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
