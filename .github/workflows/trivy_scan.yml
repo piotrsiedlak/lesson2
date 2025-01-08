@@ -17,24 +17,19 @@ jobs:
 
       - name: Install Trivy
         run: |
-          # Download Trivy install script
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh -o install.sh
           
-          # Validate download success
           if [ ! -s install.sh ]; then
             echo "Error: Failed to download Trivy install script."
             exit 1
           fi
 
-          # Make the script executable
           chmod +x install.sh
 
-          # Run the install script
           ./install.sh
 
-          # Move Trivy to a directory in PATH
           sudo mv ./bin/trivy /usr/local/bin/trivy
 
       - name: Scan Dockerfile with Trivy
         run: |
-          trivy config --severity HIGH,CRITICAL --exit-code 1 --no-progress .
+          trivy config --severity HIGH,CRITICAL --exit-code 1 .
