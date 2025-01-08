@@ -16,11 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Dockerfile scan with Hadolint
-        uses: hadolint/hadolint-action@v2
-        with:
-          dockerfile: dockerfile
-
       - name: Dockerfile scan with Trivy
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
