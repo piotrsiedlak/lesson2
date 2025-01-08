@@ -24,7 +24,10 @@ jobs:
           dockerfile: dockerfile
 
       # Optional: Add another scanner
-      - name: Dockerfile scan with Trivy
+      - name: Install Trivy
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-          ./trivy config --exit-code 1 --severity HIGH dockerfile
+          sudo mv ./bin/trivy /usr/local/bin/trivy # Move Trivy to a location in PATH
+
+      - name: Scan Dockerfile with Trivy
+        run: trivy config --exit-code 1 --severity HIGH dockerfile
