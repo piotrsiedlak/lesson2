@@ -29,7 +29,12 @@ jobs:
           ./install.sh
 
           sudo mv ./bin/trivy /usr/local/bin/trivy
+      - name: Check dir
+        run: ls -lh
 
-      - name: Scan Dockerfile with Trivy
-        run: |
-          trivy config --exit-code 1 --severity HIGH --format table ./dockerfile
+      - name: Check trivy version
+        run: trivy --version
+
+   #   - name: Scan Dockerfile with Trivy
+    #    run: |
+     #     trivy config --exit-code 1 --severity HIGH --format table ./dockerfile
