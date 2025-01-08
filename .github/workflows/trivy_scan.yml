@@ -10,8 +10,7 @@ on:
 
 jobs:
   trivy-scan:
-    runs-on: ubuntu-jammy
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
