@@ -30,8 +30,6 @@ jobs:
 
           sudo mv ./bin/trivy /usr/local/bin/trivy
 
-      - name: where we are 
-        run: pwd
- #     - name: Scan Dockerfile with Trivy
-  #      run: |
-   #       trivy config --exit-code 1 --severity HIGH --format table ./dockerfile
+      - name: Scan Dockerfile with Trivy
+        run: |
+          trivy config --exit-code 1 --severity HIGH --format table .
