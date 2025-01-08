@@ -34,4 +34,4 @@ jobs:
 
       - name: Scan Dockerfile with Trivy
         run: |
-          trivy config --debug --exit-code 1 --severity HIGH --format table .
+          trivy config --debug --exit-code 1 --severity HIGH --format table ./Dockerfile
