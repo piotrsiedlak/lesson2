@@ -1,29 +1,27 @@
-name: Dockerfile Scan with Trivy
+name: Scan Dockerfile
 
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
+    branches:
+      - master
 
 jobs:
-  trivy-scan:
+  dockerfile-scan:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download and install Trivy
-        run: |
-          wget -q https://github.com/aquasecurity/trivy/releases/latest/download/trivy_$(uname -s)_$(uname -m).tar.gz -O trivy.tar.gz
-          tar zxvf trivy.tar.gz -C /usr/local/bin/
-          rm trivy.tar.gz
+      - name: Dockerfile scan with Hadolint
+        uses: hadolint/hadolint-action@v2
+        with:
+          dockerfile: dockerfile
 
-      - name: Verify Trivy installation
-        run: trivy --version
-
-      - name: Scan Dockerfile with Trivy
+      - name: Dockerfile scan with Trivy
         run: |
-          trivy config --severity HIGH,CRITICAL --exit-code 1 --no-progress .
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+          ./trivy config --exit-code 1 --severity HIGH dockerfile
