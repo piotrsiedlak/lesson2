@@ -32,4 +32,5 @@ jobs:
 
       - name: Scan Dockerfile with Trivy
         run: |
+          ls -lh | grep docker
           trivy config --debug --exit-code 1 --severity HIGH --format table .
