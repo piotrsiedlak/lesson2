@@ -21,3 +21,5 @@ upper_bound = mean_price + margin_of_error
 print(f"Średnia cena: {mean_price:.2f} zł")
 print(f"Odchylenie standardowe: {std_price:.2f} zł")
 print(f"95% przedział ufności dla średniej ceny: ({lower_bound:.2f} zł, {upper_bound:.2f} zł)")
+
+print("wywolanie github actions")
